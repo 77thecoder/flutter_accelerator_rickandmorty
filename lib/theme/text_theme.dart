@@ -27,7 +27,7 @@ class AppStyle {
   static const characterName = TextStyle(
     fontFamily: 'Roboto',
     fontSize: 16,
-    height: 24 / 12,
+    height: 24 / 16,
     fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
     letterSpacing: 0.5,

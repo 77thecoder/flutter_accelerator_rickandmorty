@@ -37,9 +37,9 @@ class _SearchWidgetState extends State<SearchWidget> {
           suffixIcon: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 24,
-                child: SizedBox(
+                child: const SizedBox(
                   width: 1,
                   child: VerticalDivider(
                     color: ColorTheme.grey1,
