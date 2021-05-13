@@ -34,13 +34,27 @@ class _SearchWidgetState extends State<SearchWidget> {
             iconSize: 24,
             onPressed: () => print('pressed icon search'),
           ),
-          suffixIcon: IconButton(
-            icon: SvgPicture.asset(
-              'assets/svg_icons/filter.svg',
-              color: ColorTheme.grey1,
-            ),
-            iconSize: 24,
-            onPressed: () => print('pressed icon filter'),
+          suffixIcon: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              SizedBox(
+                height: 24,
+                child: SizedBox(
+                  width: 1,
+                  child: VerticalDivider(
+                    color: ColorTheme.grey1,
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: SvgPicture.asset(
+                  'assets/svg_icons/filter.svg',
+                  color: ColorTheme.grey1,
+                ),
+                iconSize: 24,
+                onPressed: () => print('pressed icon filter'),
+              ),
+            ],
           ),
           filled: true,
           fillColor: ColorTheme.backgroundSearch,
