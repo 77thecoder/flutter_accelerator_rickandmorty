@@ -53,4 +53,14 @@ class AppStyle {
     letterSpacing: 1.5,
     color: ColorTheme.status_dead,
   );
+
+  static const hint = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 16,
+    height: 24 / 16,
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0.44,
+    color: ColorTheme.grey1,
+  );
 }
