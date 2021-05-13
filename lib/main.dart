@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rickandmorty/theme/main_theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,14 +28,39 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/splash_image.png'),
+      backgroundColor: ColorTheme.background,
+      body: MyScreen(),
+    );
+  }
+}
+
+class MyScreen extends StatelessWidget {
+  const MyScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text('Рик Санчез', style: AppStyle.characterName,),
+      ),
+    );
+  }
+}
+
+
+class MyScreen1 extends StatelessWidget {
+  const MyScreen1({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/images/splash_image.jpg'),
             fit: BoxFit.fill
-          ),
         ),
       ),
     );
   }
 }
+
