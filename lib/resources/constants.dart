@@ -1,5 +1,6 @@
 // routing
 const String ROUTE_HOME = '/home';
+const String ROUTE_PROFILE = '/profile';
 const String ROUTE_SPLASH = '/splash';
 
 // lang
