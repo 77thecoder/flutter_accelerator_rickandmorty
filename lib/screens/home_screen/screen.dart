@@ -8,6 +8,7 @@ import 'package:rickandmorty/data/models/character.dart';
 import 'package:rickandmorty/data/repository.dart';
 import 'package:rickandmorty/resources/constants.dart';
 import 'package:rickandmorty/screens/home_screen/widgets/appbar_list_characters.dart';
+import 'package:rickandmorty/screens/home_screen/widgets/character_list.dart';
 import 'package:rickandmorty/theme/color_theme.dart';
 import 'package:rickandmorty/theme/main_theme.dart';
 
@@ -48,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildScreen() {
     return Container(
       padding: EdgeInsets.all(16),
-      child: isList ? _buildCharacterList() : _buildCharacterGrid(),
+      child: isList ? CharacterList(list: _list,) : _buildCharacterGrid(),
     );
   }
 
