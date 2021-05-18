@@ -12,14 +12,13 @@ class CharacterGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return StaggeredGridView.countBuilder(
       scrollDirection: Axis.vertical,
-      shrinkWrap: true,
       primary: true,
       crossAxisCount: 2,
       itemCount: list.length,
       itemBuilder: (BuildContext context, int index) =>
           CharacterItemGrid(character: list[index]),
-      staggeredTileBuilder: (int index) => StaggeredTile.count(1, 1),
-      mainAxisSpacing: 45.0,
+      staggeredTileBuilder: (int index) => StaggeredTile.count(1, 1.16),
+      mainAxisSpacing: 24.0,
       // crossAxisSpacing: 10.0,
     );
   }
