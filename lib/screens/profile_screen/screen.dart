@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/components/custom_icon_back.dart';
+import 'package:rickandmorty/resources/constants.dart';
+import 'package:rickandmorty/screens/profile_screen/widgets/profile_character_info.dart';
 import 'package:rickandmorty/theme/main_theme.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -18,6 +20,23 @@ class ProfileScreen extends StatelessWidget {
   }
 
   Widget _buildScreen(BuildContext context) {
+    return ListView(
+      scrollDirection: Axis.vertical,
+      children: [
+        Column(
+          children: [
+            SizedBox(
+              height: 310,
+              child: _buildHeader(context),
+            ),
+            _buildProfileContent(),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildHeader(BuildContext context) {
     return Stack(
       children: [
         Container(),
@@ -68,6 +87,65 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
           ),
+        ),
+        Positioned(
+          top: 310,
+          child: _buildProfileContent(),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildProfileContent() {
+    return Container(
+      padding: EdgeInsets.only(left: 16, right: 16),
+      child: Column(
+        children: [
+          Text(
+            'Рик Санчез',
+            style: AppStyle.profileCharacterName,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            ALIVE,
+            style: AppStyle.status_alive,
+          ),
+          const SizedBox(height: 36),
+          Text(
+            'Главный протагонист мультсериала «Рик и Морти». Безумный ученый, чей алкоголизм, безрассудность и социопатия заставляют беспокоиться семью его дочери.',
+            style: AppStyle.profileCharacterDescription,
+            textAlign: TextAlign.justify,
+          ),
+          const SizedBox(height: 24),
+          ProfileCharacterInfo(),
+          const SizedBox(height: 36),
+          Divider(
+            color: ColorTheme.divider,
+            height: 2,
+          ),
+          const SizedBox(height: 36),
+          _buildEpisodes(),
+        ],
+
+      ),
+    );
+  }
+
+  Widget _buildEpisodes() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(EPISODES, style: AppStyle.titleSection),
+          ],
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text(EPISODES_ALL, style: AppStyle.caption1),
+          ],
         ),
       ],
     );
