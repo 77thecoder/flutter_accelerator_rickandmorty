@@ -2,25 +2,58 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/components/custom_icon_back.dart';
+import 'package:rickandmorty/data/models/episode.dart';
+import 'package:rickandmorty/data/repository.dart';
 import 'package:rickandmorty/resources/constants.dart';
 import 'package:rickandmorty/screens/profile_screen/widgets/profile_character_info.dart';
+import 'package:rickandmorty/screens/profile_screen/widgets/profile_episode_list.dart';
 import 'package:rickandmorty/theme/main_theme.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key, required this.id}) : super(key: key);
 
   final int id;
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  final Repository _repository = Repository();
+
+  late List<Episode> _episodes;
+
+  @override
+  void initState() {
+    _episodes = _repository.getEpisodes();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorTheme.background,
       body: _buildScreen(context),
+      // body: Container(
+      //   color: Colors.amber,
+      //   child: ListView(
+      //     padding: EdgeInsets.zero,
+      //     children: [
+      //       Text('dddsd'),
+      //       Text('dddsd'),
+      //       Text('dddsd'),
+      //       Text('dddsd'),
+      //       Text('dddsd'),
+      //       Text('dddsd'),
+      //       Text('dddsd'),
+      //     ],
+      //   ),
+      // ),
     );
   }
 
   Widget _buildScreen(BuildContext context) {
     return ListView(
+      padding: EdgeInsets.zero,
       scrollDirection: Axis.vertical,
       children: [
         Column(
@@ -30,6 +63,13 @@ class ProfileScreen extends StatelessWidget {
               child: _buildHeader(context),
             ),
             _buildProfileContent(),
+            const SizedBox(height: 36),
+            Divider(
+              color: ColorTheme.divider,
+              height: 2,
+            ),
+            const SizedBox(height: 36),
+            _buildEpisodes(),
           ],
         ),
       ],
@@ -39,7 +79,6 @@ class ProfileScreen extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     return Stack(
       children: [
-        Container(),
         Container(
           height: 218,
           decoration: BoxDecoration(
@@ -118,36 +157,37 @@ class ProfileScreen extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           ProfileCharacterInfo(),
-          const SizedBox(height: 36),
-          Divider(
-            color: ColorTheme.divider,
-            height: 2,
-          ),
-          const SizedBox(height: 36),
-          _buildEpisodes(),
         ],
-
       ),
     );
   }
 
   Widget _buildEpisodes() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(EPISODES, style: AppStyle.titleSection),
-          ],
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text(EPISODES_ALL, style: AppStyle.caption1),
-          ],
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(left: 16, right: 16),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(EPISODES, style: AppStyle.titleSection),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(EPISODES_ALL, style: AppStyle.caption1),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 24),
+          ProfileEpisodeList(list: _episodes),
+        ],
+      ),
     );
   }
 }

@@ -104,6 +104,16 @@ class AppStyle {
     color: ColorTheme.white,
   );
 
+  static const body2 = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 14,
+    height: 20 / 14,
+    fontWeight: FontWeight.w400,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0.25,
+    color: ColorTheme.caption,
+  );
+
   static const titleSection = TextStyle(
     fontFamily: 'Roboto',
     fontSize: 20,
@@ -111,6 +121,26 @@ class AppStyle {
     fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
     letterSpacing: 0.15,
+    color: ColorTheme.white,
+  );
+
+  static const captionSeries = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 10,
+    height: 16 / 10,
+    fontWeight: FontWeight.w500,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 1.5,
+    color: ColorTheme.captionSeries,
+  );
+
+  static const seriesTitle = TextStyle(
+    fontFamily: 'Roboto',
+    fontSize: 16,
+    height: 24 / 16,
+    fontWeight: FontWeight.w500,
+    fontStyle: FontStyle.normal,
+    letterSpacing: 0.5,
     color: ColorTheme.white,
   );
 }

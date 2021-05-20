@@ -13,4 +13,5 @@ const String LOCATION = 'Местоположение';
 const String PLACEOFBIRTH = 'Место рождения';
 const String RACE = 'Раса';
 const String SEARCH_HINT = 'Найти персонажа';
+const String SERIES = 'Серия';
 const String TOTAL_CHARACTER = 'ВСЕГО ПЕРСОНАЖЕЙ:';
